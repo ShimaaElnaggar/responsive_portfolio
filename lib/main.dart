@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:responsive_portfolio/providers/certificate_provider.dart';
+import 'package:responsive_portfolio/providers/project_provider.dart';
 import 'package:responsive_portfolio/views/Splash/splash_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider<CertificateProvider>(
+      create: (context) => CertificateProvider(),
+    ),
+    ChangeNotifierProvider<ProjectProvider>(
+      create: (context) => ProjectProvider(),
+    ),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,17 +24,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      builder: (context, _) =>  MaterialApp(
+      builder: (context, _) => MaterialApp(
         debugShowCheckedModeBanner: false,
-          title: 'Portfolio',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-            useMaterial3: true,
-          ),
-          home: const SplashView(),
+        title: 'Portfolio',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
         ),
+        home: const SplashView(),
+      ),
     );
   }
 }
-
-
