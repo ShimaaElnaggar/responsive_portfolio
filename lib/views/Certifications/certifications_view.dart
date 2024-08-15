@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -38,7 +39,7 @@ class _CertificationsViewState extends State<CertificationsView> {
               SizedBox(height: ScreenUtil().setHeight(20)),
               Expanded(
                 child: CertificateGrid(
-                  crossAxisCount: ScreenUtil().screenWidth > 700 ? 3 : 2,
+                  crossAxisCount: ScreenUtil().screenWidth > 700 ?  3 : 2,
                   certificateList: certificateList,
                 ),
               ),
