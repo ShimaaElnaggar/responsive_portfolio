@@ -9,8 +9,6 @@ import 'package:responsive_portfolio/widgets/title_text.dart';
 class CertificationsView extends StatefulWidget {
   const CertificationsView({super.key});
 
-
-
   @override
   _CertificationsViewState createState() => _CertificationsViewState();
 }
@@ -19,7 +17,10 @@ class _CertificationsViewState extends State<CertificationsView> {
   @override
   void initState() {
     super.initState();
-    Provider.of<CertificateProvider>(context, listen: false).readCertificates();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<CertificateProvider>(context, listen: false)
+          .readCertificates();
+    });
   }
 
   @override
@@ -32,13 +33,12 @@ class _CertificationsViewState extends State<CertificationsView> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (ScreenUtil().screenWidth > 600)
-                SizedBox(height: ScreenUtil().setHeight(20)),
+              SizedBox(height: ScreenUtil().setHeight(20)),
               const TitleText(prefix: 'Certifications & ', title: 'License'),
               SizedBox(height: ScreenUtil().setHeight(20)),
               Expanded(
                 child: CertificateGrid(
-                  crossAxisCount: ScreenUtil().screenWidth > 600 ? 4 : 2,
+                  crossAxisCount: ScreenUtil().screenWidth > 700 ? 3 : 2,
                   certificateList: certificateList,
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:responsive_portfolio/models/certificate.dart';
 import 'package:responsive_portfolio/utils/colors_utility.dart';
@@ -24,72 +25,78 @@ class CertificateDetails extends StatelessWidget {
             borderRadius: BorderRadius.circular(30),
             color: ColorsUtility.backgroundColor),
         duration: const Duration(milliseconds: 500),
-        child: Column(
-          children: [
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        certificateList[index].name,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.white,
+        child: SizedBox(
+          height: ScreenUtil().setHeight(120),
+          width: ScreenUtil().setWidth(300),
+          child: Column(
+            children: [
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          certificateList[index].name,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.fade,
                         ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            certificateList[index].organization,
-                            style: const TextStyle(color: Colors.amber),
-                            maxLines: 3,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          Text(
-                            certificateList[index].date,
-                            style: const TextStyle(
-                                color: Colors.grey, fontSize: 12),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text.rich(
-                        maxLines: 1,
-                        TextSpan(
-                            text: 'Skills : ',
-                            style: const TextStyle(
-                              color: Colors.white,
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                certificateList[index].organization,
+                                style: const TextStyle(color: Colors.amber),
+                                maxLines: 1,
+                                overflow: TextOverflow.fade,
+                              ),
                             ),
-                            children: [
-                              TextSpan(
-                                text: certificateList[index].skills,
-                                style: const TextStyle(
-                                    color: Colors.grey,
-                                    overflow: TextOverflow.ellipsis),
-                              )
-                            ]),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                    ],
-                  ),
-                ],
+                            Text(
+                              certificateList[index].date,
+                              style: const TextStyle(
+                                  color: Colors.grey, fontSize: 12),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text.rich(
+                          maxLines: 1,
+                          TextSpan(
+                              text: 'Skills : ',
+                              style: const TextStyle(
+                                color: Colors.white,
+                              ),
+                              children: [
+                                TextSpan(
+                                  text: certificateList[index].skills,
+                                  style: const TextStyle(
+                                      color: Colors.grey,
+                                      overflow: TextOverflow.ellipsis),
+                                )
+                              ]),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Flexible(child: buildButton()),
-          ],
+              Flexible(child: buildButton()),
+            ],
+          ),
         ));
   }
 

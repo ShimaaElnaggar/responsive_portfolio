@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 812),
+      designSize: const Size(360, 640),
       builder: (context, _) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Portfolio',
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: ColorsUtility.backgroundColor,
           useMaterial3: true,
         ),
-        home: CertificationsView(),
+        home: const CertificationsView(),
       ),
     );
   }

@@ -36,7 +36,7 @@ class TitleText extends StatelessWidget {
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
-              fontSize: ScreenUtil().setSp(16), // Adjust text size based on screen size
+              fontSize: ScreenUtil().setSp(16),
             ),
           ),
         ),
