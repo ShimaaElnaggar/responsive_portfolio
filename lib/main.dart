@@ -4,8 +4,10 @@ import 'package:provider/provider.dart';
 import 'package:responsive_portfolio/providers/certificate_provider.dart';
 import 'package:responsive_portfolio/providers/project_provider.dart';
 import 'package:responsive_portfolio/utils/colors_utility.dart';
-import 'package:responsive_portfolio/views/Certifications/certifications_view.dart';
-import 'package:responsive_portfolio/views/Splash/splash_view.dart';
+import 'package:responsive_portfolio/views/Master/master_view.dart';
+
+
+
 
 void main() {
   runApp(MultiProvider(providers: [
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: ColorsUtility.backgroundColor,
           useMaterial3: true,
         ),
-        home: const CertificationsView(),
+        home: MasterView(pages: []),
       ),
     );
   }

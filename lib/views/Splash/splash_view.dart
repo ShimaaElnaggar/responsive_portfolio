@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:responsive_portfolio/utils/colors_utility.dart';
-import 'package:responsive_portfolio/views/Splash/components/animated_loading_text.dart';
 import 'package:responsive_portfolio/views/Home/home_view.dart';
+import 'package:responsive_portfolio/views/Splash/components/animated_loading_text.dart';
 import 'package:responsive_portfolio/widgets/animated_image_container.dart';
 
 class SplashView extends StatefulWidget {
