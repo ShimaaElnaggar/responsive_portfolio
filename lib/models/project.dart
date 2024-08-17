@@ -3,5 +3,5 @@ class Project {
   final String description;
   final String image;
   final String link;
-  Project(this.name, this.description, this.image, this.link);
+  Project({required this.name, required this.description, required this.image,required this.link});
 }
