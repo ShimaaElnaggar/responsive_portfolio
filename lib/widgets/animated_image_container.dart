@@ -3,7 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:responsive_portfolio/utils/images_utility.dart';
 
 class AnimatedImageContainer extends StatefulWidget {
-  const AnimatedImageContainer({super.key});
+  final double? width;
+  final double? height;
+  const AnimatedImageContainer(
+      {super.key, this.height = 300, this.width = 250});
 
   @override
   AnimatedImageContainerState createState() => AnimatedImageContainerState();
@@ -37,8 +40,8 @@ class AnimatedImageContainerState extends State<AnimatedImageContainer>
         return Transform.translate(
           offset: Offset(0, 2 * value),
           child: Container(
-            height: ScreenUtil().setHeight(300),
-            width: ScreenUtil().setWidth(250),
+            height: widget.height,
+            width: widget.width,
             padding: const EdgeInsets.all(5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
@@ -68,6 +71,16 @@ class AnimatedImageContainerState extends State<AnimatedImageContainer>
               child: Image.asset(
                 ImagesUtility.logo,
                 fit: BoxFit.cover,
+                height: ScreenUtil().screenWidth >= 500
+                    ? MediaQuery.sizeOf(context).width * 0.2
+                    : ScreenUtil().screenWidth >= 700
+                        ? MediaQuery.sizeOf(context).width * 0.14
+                        : 200,
+                width: ScreenUtil().screenWidth >= 700
+                    ? MediaQuery.sizeOf(context).width * 0.2
+                    : ScreenUtil().screenWidth >= 700
+                        ? MediaQuery.sizeOf(context).width * 0.14
+                        : 200,
               ),
             ),
           ),

@@ -7,8 +7,7 @@ class AnimatedLoadingText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: ScreenUtil().setHeight(230),
-      width: ScreenUtil().setWidth(180),
+      width: 100,
       child: TweenAnimationBuilder(
         duration: const Duration(seconds: 2),
         builder: (context, value, child) => Column(
