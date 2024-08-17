@@ -7,11 +7,16 @@ import 'package:responsive_portfolio/widgets/navigation_tabs.dart';
 
 class MasterView extends StatelessWidget {
   final List<Widget> pages;
-  const MasterView({super.key, required this.pages});
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+    MasterView({super.key, required this.pages});
 
+  void openDrawer() {
+    _scaffoldKey.currentState!.openDrawer();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       drawer: const AppDrawer(),
       body: Center(
         child: Column(
@@ -25,7 +30,7 @@ class MasterView extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(20),
                     child: MenuButton(
-                      onTap: () => Scaffold.of(context).openDrawer(),
+                      onTap: openDrawer,
                     ),
                   ),
                   const Spacer(
