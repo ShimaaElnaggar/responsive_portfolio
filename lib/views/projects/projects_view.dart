@@ -15,6 +15,7 @@ class ProjectsView extends StatefulWidget {
 }
 
 class _ProjectsViewState extends State<ProjectsView> {
+  late ScrollController _scrollController;
   @override
   void initState() {
     super.initState();
@@ -22,7 +23,12 @@ class _ProjectsViewState extends State<ProjectsView> {
       Provider.of<ProjectProvider>(context, listen: false).readProjects();
     });
   }
+@override
+  void dispose() {
 
+  _scrollController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +37,8 @@ class _ProjectsViewState extends State<ProjectsView> {
           return projectProvider.projects.isEmpty
               ? const Center(child: CircularProgressIndicator())
               : GridView.builder(
+scrollDirection: Axis.vertical,
+            controller: _scrollController,
                   padding: const EdgeInsets.all(8.0),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: ScreenUtil().screenWidth > 700 ? 3 : 2,

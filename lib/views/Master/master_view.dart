@@ -7,12 +7,14 @@ import 'package:responsive_portfolio/widgets/navigation_tabs.dart';
 
 class MasterView extends StatelessWidget {
   final List<Widget> pages;
+  final PageController pageController;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-    MasterView({super.key, required this.pages});
+   MasterView({super.key, required this.pages, required this.pageController});
 
   void openDrawer() {
     _scaffoldKey.currentState!.openDrawer();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +56,7 @@ class MasterView extends StatelessWidget {
               child: PageView(
                 scrollDirection: Axis.vertical,
                 physics: const NeverScrollableScrollPhysics(),
-                controller: PageController(),
+                controller: pageController,
                 children: [...pages],
               ),
             )
