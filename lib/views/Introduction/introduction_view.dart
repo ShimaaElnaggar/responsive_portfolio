@@ -79,7 +79,7 @@ class IntroductionView extends StatelessWidget {
             children: [
               const Text(
                 'F\no\nl\nl\no\nw\n\nM\ne',
-                style: TextStyle(fontWeight: FontWeight.w800),
+                style: TextStyle(fontWeight: FontWeight.w800,color: ColorsUtility.bodyTextColor),
               ),
               const SizedBox(height: 5),
               socialMediaIcons(
@@ -145,7 +145,7 @@ class IntroductionView extends StatelessWidget {
             children: [
               const Text(
                 'F\no\nl\nl\no\nw\n\nM\ne',
-                style: TextStyle(fontWeight: FontWeight.w800),
+                style: TextStyle(fontWeight: FontWeight.w800,color: ColorsUtility.bodyTextColor),
               ),
               const SizedBox(height: 5),
               socialMediaIcons(
